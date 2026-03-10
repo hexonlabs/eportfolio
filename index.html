@@ -1100,11 +1100,12 @@ body.overscroll-bottom {
     <a href="#" class="brand">Jacob Martinez</a>
     <div class="nav-controls">
         <div class="nav-links">
-            <a href="#projects">Projects</a>
+            <a href="#projects">Featured Projects</a>
+            <a href="#highlight">Highlights</a>
             <a href="#gallery">Gallery</a>
-            <a href="#quizzes">Highlights</a>
             <a href="#skills">Core Competencies</a>
             <a href="#reflection">Reflection</a>
+            <a href="#tech">Tech Gallery</a>
         </div>
         <button class="icon-btn" id="theme-toggle" aria-label="Toggle Dark Mode">
             <svg id="moon-icon" viewBox="0 0 24 24">
@@ -1134,6 +1135,14 @@ body.overscroll-bottom {
         <h2 class="section-title fade-in">Featured Projects</h2>
         <div class="grid">
             <div class="card fade-in">
+                <h3 class="card-title">HEXON Labs</h3>
+                <p class="card-text">Private laboratory</p>
+                <div class="card-actions">
+                    <a href="https://hexonlabs.github.io" class="btn btn-tonal" style="height: 2.5rem;">Visit</a>
+                </div>
+            </div>
+
+            <div class="card fade-in">
                 <h3 class="card-title">Sand Box 3D</h3>
                 <p class="card-text">A web-based 3D sandbox game based on BabylonJS, uses CannonJS for physics.</p>
                 <div class="card-actions">
@@ -1142,17 +1151,82 @@ body.overscroll-bottom {
             </div>
 
             <div class="card fade-in">
-                <h3 class="card-title">HEXON Labs</h3>
-                <p class="card-text">Private laboratory</p>
+                <h3 class="card-title">Device Checker</h3>
+                <p class="card-text">Stats page, user-agent based.</p>
                 <div class="card-actions">
-                    <a href="https://hexonlabs.github.io" class="btn btn-tonal" style="height: 2.5rem;">Visit</a>
+                    <a href="https://hexonlabs.github.io/SandBox3D/sb3d_page" class="btn btn-tonal" style="height: 2.5rem;">Check Device</a>
+                </div>
+            </div>
+            
+            <div class="card fade-in">
+                <h3 class="card-title">???</h3>
+                <p class="card-text">???</p>
+                <div class="card-actions">
+                    <a href="https://youtu.be/xvFZjo5PgG0?si=nMONro2HmpDY5XDp" class="btn btn-tonal" style="height: 2.5rem;">???</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="highlight">
+        <h2 class="section-title fade-in">Highlights</h2>
+        <div class="grid">
+            <div class="quiz-card fade-in">
+                <img class="quiz-image" src="./galleryitems/1a.jpg" alt="balls">
+                <div class="quiz-content">
+                    <h3 class="quiz-title">Horror Film Poster</h3>
+                    <p class="quiz-desc">Group: Team Generosity, display is kinda mid, sorry for the one who's looking at this abomination😭</p>
+                </div>
+            </div>
+    
+            <div class="quiz-card fade-in">
+                <img class="quiz-image" src="./galleryitems/2a.jpg" alt="balls">
+                <div class="quiz-content">
+                    <h3 class="quiz-title">something🤔</h3>
+                    <p class="quiz-desc">display image probably, has no point for being here, just some placeholder or idk</p>
+                </div>
+            </div>
+    
+            <div class="quiz-card fade-in">
+                <img class="quiz-image" src="./galleryitems/3a.jpg" alt="balls">
+                <div class="quiz-content">
+                    <h3 class="quiz-title">Dominic</h3>
+                    <p class="quiz-desc">Dominic Torres, aka "Dom"</p>
+                </div>
+            </div>
+    
+            <div class="quiz-card fade-in">
+                <img class="quiz-image" src="./galleryitems/5a.jpg" alt="balls">
+                <div class="quiz-content">
+                    <h3 class="quiz-title">Jehel</h3>
+                    <p class="quiz-desc">My seatmate but also the best friend. Had to connect to my hotspot for "work" purposes.</p>
+                </div>
+            </div>
+    
+            <div class="quiz-card fade-in">
+                <img class="quiz-image" src="./galleryitems/4a.jpg" alt="balls">
+                <div class="quiz-content">
+                    <h3 class="quiz-title">Snowball</h3>
+                    <p class="quiz-desc">A Khao Manee cat breed.</p>
+                </div>
+            </div>
+    
+            <div class="film-card fade-in" id="film-card-trigger">
+                <div class="film-thumb-wrap">
+                    <img src="./galleryitems/2b.png" alt="Film thumbnail" class="film-thumb">
+                    <div class="film-play-btn">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </div>
+                    <div class="film-overlay">Film</div>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="gallery">
-        <h2 class="section-title fade-in">Quizzes</h2>
+        <h2 class="section-title fade-in">Gallery</h2>
         <div class="gallery-grid fade-in">
             <div class="gallery-item" data-src="./galleryitems/1.jpg">
                 <img src="./galleryitems/1.jpg" alt="balls">
@@ -1165,58 +1239,50 @@ body.overscroll-bottom {
         </div>
     </section>
 
-    <section id="quizzes">
-        <h2 class="section-title fade-in">Highlights</h2>
-        <div class="grid">
-            <div class="quiz-card fade-in">
-                <img class="quiz-image" src="./galleryitems/1a.jpg" alt="balls">
-                <div class="quiz-content">
-                    <h3 class="quiz-title">Team Generosity</h3>
-                    <p class="quiz-desc">Horror Film Poster</p>
-                </div>
+    <section id="tech">
+        <h2 class="section-title fade-in">Tech & idk Gallery</h2>
+        <div class="gallery-grid">
+    
+            <div class="gallery-item entry-gallery" data-src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmw0M3JpdW9nY2p0a2JqeXFkdzViOW94dTIxMTRuN3Jua3dobXB4eCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/aaFz1Arg0h5cOwAu2w/giphy.gif">
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmw0M3JpdW9nY2p0a2JqeXFkdzViOW94dTIxMTRuN3Jua3dobXB4eCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/aaFz1Arg0h5cOwAu2w/giphy.gif" alt="Circuit board closeup">
+                <div class="gallery-overlay">SON😭</div>
             </div>
-
-            <div class="quiz-card fade-in">
-                <img class="quiz-image" src="./galleryitems/2a.jpg" alt="balls">
-                <div class="quiz-content">
-                    <h3 class="quiz-title">???</h3>
-                    <p class="quiz-desc">display image probably</p>
-                </div>
+    
+            <div class="gallery-item entry-gallery" data-src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXo2azc0bmZhdzh0aTh0dnA3ODV3cnA0Ym90Z2ZrNzMzcXR0N3dvZyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/PcpDNvtTAhMM0Xb7Yz/giphy.gif">
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXo2azc0bmZhdzh0aTh0dnA3ODV3cnA0Ym90Z2ZrNzMzcXR0N3dvZyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/PcpDNvtTAhMM0Xb7Yz/giphy.gif" alt="Code on screen">
+                <div class="gallery-overlay">Varka</div>
             </div>
-
-            <div class="quiz-card fade-in">
-                <img class="quiz-image" src="./galleryitems/3a.jpg" alt="balls">
-                <div class="quiz-content">
-                    <h3 class="quiz-title">Dominic</h3>
-                    <p class="quiz-desc">Dominic Torres, aka "Dom"</p>
-                </div>
+    
+            <div class="gallery-item entry-gallery" data-src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600" alt="Code editor dark">
+                <div class="gallery-overlay">Dev Environment</div>
             </div>
-
-            <div class="quiz-card fade-in">
-                <img class="quiz-image" src="./galleryitems/5a.jpg" alt="balls">
-                <div class="quiz-content">
-                    <h3 class="quiz-title">Jehel</h3>
-                    <p class="quiz-desc">My seatmate but also the best friend.</p>
-                </div>
+    
+            <div class="gallery-item entry-gallery" data-src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGhoejc1em9zdm40Y3Z5MWY2ZGt2NGlsN3BqaHU3b25hMXA1a3N1dSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/mZVvOX5nJ3sYcIj8rW/giphy.gif">
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGhoejc1em9zdm40Y3Z5MWY2ZGt2NGlsN3BqaHU3b25hMXA1a3N1dSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/mZVvOX5nJ3sYcIj8rW/giphy.gif" alt="Programming">
+                <div class="gallery-overlay">Mambo sus</div>
             </div>
-
-            <div class="quiz-card fade-in">
-                <img class="quiz-image" src="./galleryitems/4a.jpg" alt="balls">
-                <div class="quiz-content">
-                    <h3 class="quiz-title">Snowball</h3>
-                    <p class="quiz-desc">A Khao Manee cat breed.</p>
-                </div>
+    
+            <div class="gallery-item entry-gallery" data-src="https://images.unsplash.com/photo-1537498425277-c283d32ef9db?w=1200">
+                <img src="https://images.unsplash.com/photo-1537498425277-c283d32ef9db?w=600" alt="Workstation setup">
+                <div class="gallery-overlay">Workstation</div>
             </div>
-
-            <div class="film-card fade-in" id="film-card-trigger">
-                <div class="film-thumb-wrap">
-                    <img src="./galleryitems/2b.png" alt="Film thumbnail" class="film-thumb">
-                    <div class="film-play-btn">
-                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                    </div>
-                    <div class="film-overlay">Film</div>
-                </div>
-            </div>            
+    
+            <div class="gallery-item entry-gallery" data-src="https://images.unsplash.com/photo-1563206767-5b18f218e8de?w=1200">
+                <img src="https://images.unsplash.com/photo-1563206767-5b18f218e8de?w=600" alt="Server hardware">
+                <div class="gallery-overlay">Server Hardware</div>
+            </div>
+    
+            <div class="gallery-item entry-gallery" data-src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXo2azc0bmZhdzh0aTh0dnA3ODV3cnA0Ym90Z2ZrNzMzcXR0N3dvZyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/nv1hLUYH9w08qpCdBS/giphy.gif">
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXo2azc0bmZhdzh0aTh0dnA3ODV3cnA0Ym90Z2ZrNzMzcXR0N3dvZyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/nv1hLUYH9w08qpCdBS/giphy.gif" alt="Matrix code">
+                <div class="gallery-overlay">"The name's Varka, Grand Master of the Knights of Favonius and the Knight of Boreas"</div>
+            </div>
+    
+            <div class="gallery-item entry-gallery" data-src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=1200">
+                <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=600" alt="Hacker setup">
+                <div class="gallery-overlay">Late Night Dev</div>
+            </div>
+    
         </div>
     </section>
 
@@ -1547,16 +1613,16 @@ body.overscroll-bottom {
 
         function runEntryAnimations() {
             const schedule = [
-                { sel: ".entry-avatar", delay: 0 },
-                { sel: ".entry-hero-title", delay: 80 },
-                { sel: ".entry-hero-sub", delay: 200 },
-                { sel: ".entry-hero-btn", delay: 320 },
+                { sel: ".entry-avatar", delay: 0, stagger: 0 },
+                { sel: ".entry-hero-title", delay: 80, stagger: 0 },
+                { sel: ".entry-hero-sub", delay: 200, stagger: 0 },
+                { sel: ".entry-hero-btn", delay: 320, stagger: 0 },
                 { sel: ".entry-section-title", delay: 480, stagger: 120 },
                 { sel: ".entry-card", delay: 560, stagger: 90 },
                 { sel: ".entry-gallery", delay: 680, stagger: 70 },
-                { sel: ".entry-film", delay: 820 },
+                { sel: ".entry-film", delay: 820, stagger: 0 },
                 { sel: ".entry-chip", delay: 900, stagger: 40 },
-                { sel: ".entry-reflection", delay: 980 },
+                { sel: ".entry-reflection", delay: 980, stagger: 0 },
             ];
 
             schedule.forEach(({ sel, delay, stagger = 0 }) => {
@@ -1574,6 +1640,8 @@ body.overscroll-bottom {
                 });
             }, { threshold: 0.15 });
             document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+
+            setTimeout(runBootGlitch, 1380);
         }
 
         function onProgress() {
