@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Portfolio | Martinez</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --md-sys-color-primary: #6750a4;
+    --md-sys-color-on-primary: #ffffff;
+    --md-sys-color-primary-container: #eaddff;
+    --md-sys-color-on-primary-container: #21005d;
+    --md-sys-color-secondary-container: #e8def8;
+    --md-sys-color-on-secondary-container: #1d192b;
+    --md-sys-color-background: #fffbff;
+    --md-sys-color-on-background: #1c1b1f;
+    --md-sys-color-surface: #fffbff;
+    --md-sys-color-on-surface: #1c1b1f;
+    --md-sys-color-surface-variant: #e7e0ec;
+    --md-sys-color-on-surface-variant: #49454f;
+    --md-elevation-1: 0 1px 2px 0 rgba(0,0,0,0.3), 0 1px 3px 1px rgba(0,0,0,0.15);
+    --md-elevation-2: 0 1px 2px 0 rgba(0,0,0,0.3), 0 2px 6px 2px rgba(0,0,0,0.15);
+    --md-elevation-3: 0 4px 8px 3px rgba(0,0,0,0.15), 0 1px 3px 0 rgba(0,0,0,0.3);
+    --md-glass-bg: rgba(255, 251, 255, 0.85);
+}
+
+body.dark-theme {
+    --md-sys-color-primary: #d0bcff;
+    --md-sys-color-on-primary: #381e72;
+    --md-sys-color-primary-container: #4f378b;
+    --md-sys-color-on-primary-container: #eaddff;
+    --md-sys-color-secondary-container: #4a4458;
+    --md-sys-color-on-secondary-container: #e8def8;
+    --md-sys-color-background: #141218;
+    --md-sys-color-on-background: #e6e0e9;
+    --md-sys-color-surface: #141218;
+    --md-sys-color-on-surface: #e6e0e9;
+    --md-sys-color-surface-variant: #49454f;
+    --md-sys-color-on-surface-variant: #cac4d0;
+    --md-glass-bg: rgba(20, 18, 24, 0.85);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+*:focus {
+    outline: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--md-sys-color-background);
+    color: var(--md-sys-color-on-background);
+    line-height: 1.5;
+    overflow-x: hidden;
+    transition: background-color 0.4s, color 0.4s;
+}
+
+h1, h2, h3, h4, h5, h6, .brand {
+    font-family: 'Google Sans', 'Roboto', sans-serif;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--md-glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 1000;
+    transition: background-color 0.4s;
+}
+
+.brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--md-sys-color-primary);
+    text-decoration: none;
+}
+
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--md-sys-color-on-surface-variant);
+    font-weight: 500;
+    padding: 0.5rem 1.2rem;
+    border-radius: 100px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-links a:hover {
+    background-color: var(--md-sys-color-surface-variant);
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.icon-btn {
+    background: transparent;
+    border: none;
+    color: var(--md-sys-color-on-surface-variant);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.icon-btn:hover {
+    background-color: var(--md-sys-color-surface-variant);
+}
+
+.icon-btn svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+section {
+    padding: 8rem 0;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: var(--md-sys-color-on-background);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--md-sys-color-on-surface-variant);
+    margin-bottom: 2.5rem;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1.5rem;
+    height: 3.5rem;
+    border-radius: 100px;
+    font-family: 'Google Sans', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: box-shadow 0.2s, transform 0.2s, background-color 0.3s, color 0.3s;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+}
+
+.btn-primary:hover {
+    box-shadow: var(--md-elevation-1);
+    transform: translateY(-2px);
+}
+
+.btn-tonal {
+    background-color: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+}
+
+.btn-tonal:hover {
+    filter: brightness(0.95);
+    transform: translateY(-2px);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--md-sys-color-primary);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background-color: var(--md-sys-color-surface);
+    border-radius: 28px;
+    padding: 2rem;
+    border: 1px solid var(--md-sys-color-surface-variant);
+    transition: box-shadow 0.3s cubic-bezier(0.2, 0, 0, 1), transform 0.3s cubic-bezier(0.2, 0, 0, 1), border-color 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    box-shadow: var(--md-elevation-2);
+    transform: translateY(-4px);
+    border-color: var(--md-sys-color-primary-container);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--md-sys-color-on-surface);
+}
+
+.card-text {
+    color: var(--md-sys-color-on-surface-variant);
+    flex-grow: 1;
+    margin-bottom: 2rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    grid-auto-rows: 250px;
+}
+
+.gallery-item {
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow: var(--md-elevation-1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+    box-shadow: var(--md-elevation-3);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    padding: 2rem 1.5rem 1rem;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-family: 'Google Sans', sans-serif;
+    font-weight: 500;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.quiz-card {
+    background-color: var(--md-sys-color-surface-variant);
+    border-radius: 28px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.quiz-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--md-elevation-2);
+}
+
+.quiz-image {
+    height: 180px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.quiz-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.quiz-title {
+    font-size: 1.25rem;
+    color: var(--md-sys-color-on-surface);
+    margin-bottom: 0.5rem;
+}
+
+.quiz-desc {
+    color: var(--md-sys-color-on-surface-variant);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.quiz-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.chip-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.chip {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    background-color: var(--md-sys-color-surface-variant);
+    color: var(--md-sys-color-on-surface-variant);
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.modal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal img {
+    max-width: 90%;
+    max-height: 90vh;
+    border-radius: 16px;
+    box-shadow: var(--md-elevation-3);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.modal.active img {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    color: white;
+    background: rgba(255,255,255,0.2);
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.2s;
+}
+
+.modal-close:hover {
+    background: rgba(255,255,255,0.4);
+}
+
+.modal-close svg {
+    fill: currentColor;
+    width: 24px;
+    height: 24px;
+}
+
+footer {
+    text-align: center;
+    padding: 3rem;
+    color: var(--md-sys-color-on-surface-variant);
+    background-color: var(--md-sys-color-surface-variant);
+    border-radius: 28px 28px 0 0;
+    transition: background-color 0.4s, color 0.4s;
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+    .nav-links {
+        display: none;
+    }
+    section {
+        padding: 6rem 0;
+    }
+}
+
+.hero-layout {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.hero-image-wrap {
+    flex-shrink: 0;
+}
+
+.hero-avatar {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hero-avatar:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: var(--md-elevation-3), 0 0 0 6px var(--md-sys-color-primary-container);
+}
+
+@media (max-width: 768px) {
+    .hero-layout {
+        flex-direction: column-reverse;
+        gap: 2rem;
+    }
+    .hero-avatar {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+#loader {
+    position: fixed;
+    inset: 0;
+    background-color: var(--md-sys-color-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#loader.hide {
+    opacity: 0;
+    transform: scale(1.05);
+    pointer-events: none;
+}
+
+.loader-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.1rem;
+}
+
+.loader-name {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--md-sys-color-primary);
+    letter-spacing: -0.5px;
+    opacity: 0;
+    transform: translateY(14px);
+    animation: loaderFadeUp 0.5s 0.1s ease forwards;
+}
+
+.loader-sub {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--md-sys-color-on-surface-variant);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: loaderFadeUp 0.5s 0.2s ease forwards;
+}
+
+.loader-bar-track {
+    width: 240px;
+    height: 4px;
+    border-radius: 100px;
+    background-color: var(--md-sys-color-surface-variant);
+    overflow: hidden;
+    opacity: 0;
+    animation: loaderFadeUp 0.5s 0.3s ease forwards;
+    margin-top: 0.4rem;
+}
+
+.loader-bar-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 100px;
+    background-color: var(--md-sys-color-primary);
+    transition: width 0.25s ease;
+}
+
+.loader-label {
+    font-size: 0.82rem;
+    color: var(--md-sys-color-on-surface-variant);
+    font-family: 'Google Sans', sans-serif;
+    opacity: 0;
+    animation: loaderFadeUp 0.5s 0.38s ease forwards;
+    min-height: 1.2em;
+    transition: opacity 0.3s;
+}
+
+.loader-greeting {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 1.45rem;
+    font-weight: 600;
+    color: var(--md-sys-color-on-background);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    min-height: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.loader-greeting.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.loader-greeting .greeting-platform {
+    color: var(--md-sys-color-primary);
+}
+
+@keyframes loaderFadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card.entry-hidden,
+.quiz-card.entry-hidden,
+.gallery-item.entry-hidden,
+.hero-content.entry-hidden,
+.hero-image-wrap.entry-hidden,
+.section-title.entry-hidden,
+.chip-group.entry-hidden {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95) rotate(-0.8deg);
+    filter: blur(2px);
+}
+
+.card.entry-anim,
+.quiz-card.entry-anim,
+.gallery-item.entry-anim,
+.hero-content.entry-anim,
+.hero-image-wrap.entry-anim,
+.section-title.entry-anim,
+.chip-group.entry-anim {
+    transition: opacity 0.6s cubic-bezier(0.2, 0, 0, 1),
+                transform 0.6s cubic-bezier(0.2, 0, 0, 1),
+                filter 0.6s ease;
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+    filter: blur(0px);
+}
+
+.film-card {
+    grid-column: 1 / -1;
+    border-radius: 28px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow: var(--md-elevation-1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 280px;
+}
+
+.film-card:hover {
+    transform: scale(1.015);
+    box-shadow: var(--md-elevation-3);
+}
+
+.film-thumb-wrap {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.film-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+}
+
+.film-card:hover .film-thumb {
+    transform: scale(1.05);
+}
+
+.film-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1),
+                background 0.25s;
+}
+
+.film-play-btn svg {
+    fill: white;
+    width: 28px;
+    height: 28px;
+    margin-left: 3px;
+}
+
+.film-card:hover .film-play-btn {
+    transform: translate(-50%, -50%) scale(1.12);
+    background: rgba(255, 255, 255, 0.32);
+}
+
+.film-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    padding: 2rem 1.5rem 1rem;
+    color: white;
+    font-family: 'Google Sans', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.film-card:hover .film-overlay {
+    opacity: 1;
+}
+
+#video-modal video {
+    max-width: 92%;
+    max-height: 88vh;
+    width: 960px;
+    border-radius: 16px;
+    box-shadow: var(--md-elevation-3);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+    background: #000;
+    display: block;
+}
+
+#video-modal.active video {
+    transform: scale(1);
+}
+
+/* ── REFLECTION ── */
+.reflection-card {
+    background-color: var(--md-sys-color-surface);
+    border: 1px solid var(--md-sys-color-surface-variant);
+    border-radius: 28px;
+    padding: 3rem;
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    max-width: 860px;
+    margin: 0 auto;
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.reflection-card:hover {
+    box-shadow: var(--md-elevation-2);
+    border-color: var(--md-sys-color-primary-container);
+}
+
+.reflection-quote-mark {
+    font-family: 'Google Sans', serif;
+    font-size: 7rem;
+    line-height: 0.75;
+    color: var(--md-sys-color-primary);
+    opacity: 0.25;
+    flex-shrink: 0;
+    user-select: none;
+}
+
+.reflection-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.reflection-paragraph {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.reflection-paragraph strong {
+    color: var(--md-sys-color-on-surface);
+    font-weight: 600;
+}
+
+.reflection-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .reflection-card {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 2rem;
+    }
+    .reflection-quote-mark {
+        font-size: 4rem;
+    }
+}
+</style>
+</head>
+<body>
+
+    <div id="loader">
+        <div class="loader-inner">
+            <div class="loader-name">MIL E-Portfolio</div>
+            <div class="loader-sub" id="loader-sub">Setup Screen</div>
+            <div class="loader-bar-track">
+                <div class="loader-bar-fill" id="loader-bar"></div>
+            </div>
+            <div class="loader-label" id="loader-label">Loading…</div>
+            <div class="loader-greeting" id="loader-greeting"></div>
+        </div>
+    </div>z
+
+<nav>
+    <a href="#" class="brand">Jacob Martinez</a>
+    <div class="nav-controls">
+        <div class="nav-links">
+            <a href="#projects">Projects</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#quizzes">Highlights</a>
+            <a href="#skills">Core Competencies</a>
+        </div>
+        <button class="icon-btn" id="theme-toggle" aria-label="Toggle Dark Mode">
+            <svg id="moon-icon" viewBox="0 0 24 24">
+                <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/>
+            </svg>
+        </button>
+    </div>
+</nav>
+
+<div class="container">
+    <section id="about" class="fade-in">
+        <div class="hero-layout">
+            <div class="hero-content">
+                <h1 class="hero-title">Technical Portfolio of Jacob Martinez</h1>
+                <p class="hero-subtitle">Making something that truly works.</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+                    <a href="https://github.com/hexonlabs" class="btn btn-primary">View GitHub Repositories</a>
+                </div>
+            </div>
+            <div class="hero-image-wrap">
+                <img src="./galleryitems/profile.png" alt="Jacob Martinez" class="hero-avatar">
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title fade-in">Featured Projects</h2>
+        <div class="grid">
+            <div class="card fade-in">
+                <h3 class="card-title">Sand Box 3D</h3>
+                <p class="card-text">A web-based 3D sandbox game based on BabylonJS, uses CannonJS for physics.</p>
+                <div class="card-actions">
+                    <a href="https://hexonlabs.github.io/SandBox3D/sb3d_page" class="btn btn-tonal" style="height: 2.5rem;">Launch Sandbox</a>
+                </div>
+            </div>
+
+            <div class="card fade-in">
+                <h3 class="card-title">HEXON Labs</h3>
+                <p class="card-text">Private laboratory</p>
+                <div class="card-actions">
+                    <a href="https://hexonlabs.github.io" class="btn btn-tonal" style="height: 2.5rem;">Visit</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2 class="section-title fade-in">Quizzes</h2>
+        <div class="gallery-grid fade-in">
+            <div class="gallery-item" data-src="./galleryitems/1.jpg">
+                <img src="./galleryitems/1.jpg" alt="balls">
+                <div class="gallery-overlay">Quiz 1</div>
+            </div>
+            <div class="gallery-item" data-src="./galleryitems/2.jpg">
+                <img src="./galleryitems/2.jpg" alt="balls">
+                <div class="gallery-overlay">Quiz 2</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quizzes">
+        <h2 class="section-title fade-in">Highlights</h2>
+        <div class="grid">
+            <div class="quiz-card fade-in">
+                <img class="quiz-image" src="./galleryitems/1a.jpg" alt="balls">
+                <div class="quiz-content">
+                    <h3 class="quiz-title">Team Generosity</h3>
+                    <p class="quiz-desc">Horror Film Poster</p>
+                </div>
+            </div>
+
+            <div class="quiz-card fade-in">
+                <img class="quiz-image" src="./galleryitems/2a.jpg" alt="balls">
+                <div class="quiz-content">
+                    <h3 class="quiz-title">???</h3>
+                    <p class="quiz-desc">display image probably</p>
+                </div>
+            </div>
+
+            <div class="quiz-card fade-in">
+                <img class="quiz-image" src="./galleryitems/3a.jpg" alt="balls">
+                <div class="quiz-content">
+                    <h3 class="quiz-title">Dominic</h3>
+                    <p class="quiz-desc">Dominic Torres, aka "Dom"</p>
+                </div>
+            </div>
+
+            <div class="quiz-card fade-in">
+                <img class="quiz-image" src="./galleryitems/5a.jpg" alt="balls">
+                <div class="quiz-content">
+                    <h3 class="quiz-title">Jehel</h3>
+                    <p class="quiz-desc">My seatmate but also the best friend.</p>
+                </div>
+            </div>
+
+            <div class="quiz-card fade-in">
+                <img class="quiz-image" src="./galleryitems/4a.jpg" alt="balls">
+                <div class="quiz-content">
+                    <h3 class="quiz-title">Snowball</h3>
+                    <p class="quiz-desc">A Khao Manee cat breed.</p>
+                </div>
+            </div>
+
+            <div class="film-card fade-in" id="film-card-trigger">
+                <div class="film-thumb-wrap">
+                    <img src="./galleryitems/2b.png" alt="Film thumbnail" class="film-thumb">
+                    <div class="film-play-btn">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                    <div class="film-overlay">Film</div>
+                </div>
+            </div>            
+        </div>
+    </section>
+
+    <section id="skills" class="fade-in">
+        <h2 class="section-title">Core Competencies</h2>
+        <div class="chip-group">
+            <span class="chip">HTML5 / Web APIs</span>
+            <span class="chip">Advanced CSS3</span>
+            <span class="chip">Modular JavaScript</span>
+            <span class="chip">Babylon.js / Cannon.js</span>
+            <span class="chip">System Modding Architecture</span>
+            <span class="chip">UI/UX Interactivity</span>
+            <span class="chip">Performance Optimization</span>
+            <span class="chip">Cross-Platform Builds</span>
+        </div>
+    </section>
+</div>
+
+<div class="container">
+    <section id="reflection" class="fade-in">
+        <h2 class="section-title">Reflection</h2>
+        <div class="reflection-card">
+            <div class="reflection-quote-mark">"</div>
+            <div class="reflection-body">
+                <p class="reflection-paragraph">
+                    Media and Information Literacy has reshaped the way I approach everything I create online. Before
+                    this subject, I built things because they worked — now I build them with a sharper awareness of
+                    <strong>why</strong> they exist, <strong>who</strong> sees them, and <strong>what</strong> they
+                    communicate beyond their function.
+                </p>
+                <p class="reflection-paragraph">
+                    Understanding the difference between information, misinformation, and media bias made me more
+                    deliberate as a developer. Every element on a webpage — a color, a label, a layout choice — is a
+                    form of communication. This portfolio itself is a media product, and MIL taught me to treat it like
+                    one.
+                </p>
+                <p class="reflection-paragraph">
+                    The activities we completed, from analyzing media sources to producing our own content, showed me
+                    that <strong>digital literacy isn't just about consuming media critically</strong> — it's about
+                    being a responsible creator too. Building Sand Box 3D and managing HEXON Laboratories means I'm
+                    putting content out into the world, and I now carry the responsibility that comes with that.
+                </p>
+                <p class="reflection-paragraph">
+                    This subject didn't just teach me to fact-check. It taught me to think about access, representation,
+                    and the real weight of what we publish — lessons I'll carry well past this class.
+                </p>
+                <div class="reflection-chips">
+                    <span class="chip">Media Literacy</span>
+                    <span class="chip">Critical Thinking</span>
+                    <span class="chip">Responsible Creation</span>
+                    <span class="chip">Digital Citizenship</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>MIL E-Portfolio, Jacob Martinez</p>
+</footer>
+
+<div class="modal" id="image-modal">
+    <button class="modal-close" id="modal-close" aria-label="Close Modal">
+        <svg viewBox="0 0 24 24">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+        </svg>
+    </button>
+    <img id="modal-img" src="" alt="Full Screen Preview">
+</div>
+
+<div class="modal" id="video-modal">
+    <button class="modal-close" id="video-modal-close" aria-label="Close Video">
+        <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+    </button>
+    <video id="modal-video" controls playsinline>
+        <source src="./galleryitems/1b.mp4" type="video/mp4">
+    </video>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        const body = document.body;
+        const themeToggle = document.getElementById("theme-toggle");
+        if (localStorage.getItem("shaman-theme") === "dark") body.classList.add("dark-theme");
+        themeToggle.addEventListener("click", () => {
+            body.classList.toggle("dark-theme");
+            localStorage.setItem("shaman-theme", body.classList.contains("dark-theme") ? "dark" : "light");
+        });
+
+        const modal = document.getElementById("image-modal");
+        const modalImg = document.getElementById("modal-img");
+        document.getElementById("modal-close").addEventListener("click", () => modal.classList.remove("active"));
+        modal.addEventListener("click", e => { if (e.target === modal) modal.classList.remove("active"); });
+        document.querySelectorAll(".gallery-item").forEach(item => {
+            item.addEventListener("click", () => {
+                modalImg.src = item.getAttribute("data-src");
+                modal.classList.add("active");
+            });
+        });
+
+        const videoModal = document.getElementById("video-modal");
+        const modalVideo = document.getElementById("modal-video");
+        const videoModalClose = document.getElementById("video-modal-close");
+
+        document.getElementById("film-card-trigger").addEventListener("click", () => {
+            videoModal.classList.add("active");
+            modalVideo.currentTime = 0;
+            modalVideo.play();
+        });
+
+        videoModalClose.addEventListener("click", () => {
+            videoModal.classList.remove("active");
+            modalVideo.pause();
+        });
+
+        videoModal.addEventListener("click", e => {
+            if (e.target === videoModal) {
+                videoModal.classList.remove("active");
+                modalVideo.pause();
+            }
+        });
+
+        function getPlatformGreeting() {
+            const ua = navigator.userAgent;
+            if (/iPhone|iPad|iPod/i.test(ua)) return { label: "Apple User", icon: "" };
+            if (/Macintosh|MacIntel/i.test(ua)) return { label: "Mac User", icon: "" };
+            if (/Android/i.test(ua)) return { label: "Android User", icon: "" };
+            if (/Windows/i.test(ua)) return { label: "Windows User", icon: "" };
+            if (/Linux/i.test(ua)) return { label: "Linux User", icon: "" };
+            if (/CrOS/i.test(ua)) return { label: "ChromeOS User", icon: "" };
+            return { label: "Visitor", icon: "👋" };
+        }
+
+        const loader = document.getElementById("loader");
+        const loaderBar = document.getElementById("loader-bar");
+        const loaderLabel = document.getElementById("loader-label");
+        const loaderGreeting = document.getElementById("loader-greeting");
+
+        const allImgs = Array.from(document.images);
+        const total = allImgs.length || 1;
+        let loaded = 0;
+
+        const entryTargets = [
+            ".hero-content", ".hero-image-wrap",
+            ".card", ".quiz-card", ".gallery-item",
+            ".section-title", ".chip-group",
+            "#reflection .card"
+        ].flatMap(sel => Array.from(document.querySelectorAll(sel)));
+
+        entryTargets.forEach(el => {
+            el.classList.remove("fade-in");
+            el.classList.add("entry-hidden");
+        });
+
+        function onProgress() {
+            loaded++;
+            const pct = Math.round((loaded / total) * 100);
+            loaderBar.style.width = pct + "%";
+            loaderLabel.textContent = `Loading… ${pct}%`;
+            if (loaded >= total) triggerDone();
+        }
+
+        function triggerDone() {
+            loaderBar.style.width = "100%";
+            loaderLabel.style.opacity = "0";
+
+            const { label, icon } = getPlatformGreeting();
+            loaderGreeting.innerHTML = `Hello, <span class="greeting-platform">${icon} ${label}</span> 👋`;
+
+            setTimeout(() => loaderGreeting.classList.add("show"), 100);
+            setTimeout(dismissLoader, 1800);
+        }
+
+        function dismissLoader() {
+            loader.classList.add("hide");
+            setTimeout(runEntryAnimations, 400);
+            loader.addEventListener("transitionend", () => loader.remove(), { once: true });
+        }
+
+        function runEntryAnimations() {
+            entryTargets.forEach((el, i) => {
+                setTimeout(() => {
+                    el.classList.remove("entry-hidden");
+                    el.classList.add("entry-anim");
+                }, i * 75);
+            });
+
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+        }
+
+        if (allImgs.length === 0) {
+            triggerDone();
+        } else {
+            allImgs.forEach(img => {
+                if (img.complete) onProgress();
+                else {
+                    img.addEventListener("load", onProgress, { once: true });
+                    img.addEventListener("error", onProgress, { once: true });
+                }
+            });
+
+            allVideos.forEach(video => {
+                if (video.readyState >= 3) onProgress();
+                else {
+                    video.addEventListener("canplaythrough", onProgress, { once: true });
+                    video.addEventListener("error", onProgress, { once: true });
+                }
+            });
+        }
+    });
+</script>
+<script>
+    (function () {
+        const REDIRECT = "https://hexonlabs.github.io/404";
+        let fired = false;
+
+        function eject() {
+            if (fired) return;
+            fired = true;
+            window.location.replace(REDIRECT);
+        }
+
+        document.addEventListener("contextmenu", e => e.preventDefault());
+
+        let lastOuterW = window.outerWidth;
+        let lastOuterH = window.outerHeight;
+
+        function check() {
+            const outerW = window.outerWidth;
+            const outerH = window.outerHeight;
+            const innerW = window.innerWidth;
+            const innerH = window.innerHeight;
+
+            const outerShrankW = outerW < lastOuterW - 10;
+            const outerShrankH = outerH < lastOuterH - 10;
+            const isMinimizeOrResize = outerShrankW || outerShrankH;
+
+            lastOuterW = outerW;
+            lastOuterH = outerH;
+
+            if (isMinimizeOrResize) return;
+
+            const dw = outerW - innerW;
+            const dh = outerH - innerH;
+            if (dw > 200 || dh > 200) eject();
+        }
+
+        window.addEventListener("resize", check);
+        setInterval(check, 800);
+    })();
+</script>
+</body>
+</html>
