@@ -1341,7 +1341,7 @@ body.overscroll-bottom {
 </div>
 
 <footer>
-    <p>MIL E-Portfolio, Jacob Martinez</p>
+    <p>MIL E-Portfolio, Jacob Martinez (with HEXON Security Protocols)</p>
 </footer>
 
 <div class="modal" id="image-modal">
@@ -1461,7 +1461,6 @@ body.overscroll-bottom {
             }, { passive: true });
         })();
 
-        /* ── SCROLL VELOCITY STRETCH ── */
         (function () {
             let lastScrollY = window.scrollY;
             let lastTimestamp = performance.now();
@@ -1728,6 +1727,124 @@ body.overscroll-bottom {
 
         window.addEventListener("resize", check);
         setInterval(check, 800);
+    })();
+</script>
+<script>
+    (function () {
+        const REDIRECT_URL = 'https://hexonlabs.github.io/404'; 
+
+        function isMobile() {
+            return window.innerWidth <= 768;
+        }
+
+        function triggerRedirect() {
+            window.location.href = REDIRECT_URL;
+        }
+
+        document.addEventListener('copy', function (e) {
+            const selected = window.getSelection()?.toString().trim();
+            if (!selected || selected.length < 3) return;
+            e.preventDefault();
+            e.clipboardData?.setData('text/plain', '');
+            triggerRedirect();
+        });
+
+        document.addEventListener('selectstart', function (e) {
+            if (isMobile()) e.preventDefault();
+        });
+
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('keydown', function (e) {
+            const ctrl = e.ctrlKey || e.metaKey;
+            if (ctrl && ['c', 'u', 's', 'a'].includes(e.key.toLowerCase())) {
+                e.preventDefault();
+                if (e.key.toLowerCase() === 'c') triggerRedirect();
+            }
+        });
+    })();
+</script>
+<script>
+    (function () {
+        const REDIRECT_URL = 'https://hexonlabs.github.io/404';
+
+        let mouseDownX = 0;
+        let mouseDownY = 0;
+        let isDragging = false;
+        let suspicionScore = 0;
+        let lastMoveTime = 0;
+        let rapidSelectCount = 0;
+        let rapidSelectTimer = null;
+
+        const DRAG_THRESHOLD = 12;
+        const SUSPICION_LIMIT = 4;
+        const RAPID_SELECT_LIMIT = 3;
+        const RAPID_WINDOW_MS = 1200;
+
+        function triggerRedirect() {
+            window.location.href = REDIRECT_URL;
+        }
+
+        function raiseSuspicion(reason) {
+            suspicionScore++;
+            if (suspicionScore >= SUSPICION_LIMIT) triggerRedirect();
+        }
+
+        document.addEventListener('mousedown', function (e) {
+            if (e.button !== 0) return;
+            mouseDownX = e.clientX;
+            mouseDownY = e.clientY;
+            isDragging = false;
+        });
+
+        document.addEventListener('mousemove', function (e) {
+            if (!(e.buttons & 1)) return;
+            const dx = Math.abs(e.clientX - mouseDownX);
+            const dy = Math.abs(e.clientY - mouseDownY);
+            const now = Date.now();
+
+            if (dx > DRAG_THRESHOLD || dy > DRAG_THRESHOLD) {
+                if (!isDragging) {
+                    isDragging = true;
+
+                    const timeSinceLast = now - lastMoveTime;
+                    if (timeSinceLast < 80) raiseSuspicion('fast-drag');
+                    else raiseSuspicion('text-drag');
+
+                    lastMoveTime = now;
+                }
+            }
+        });
+
+        document.addEventListener('mouseup', function () {
+            if (!isDragging) return;
+            const selected = window.getSelection()?.toString().trim();
+            if (selected && selected.length >= 3) {
+                rapidSelectCount++;
+                clearTimeout(rapidSelectTimer);
+                rapidSelectTimer = setTimeout(() => { rapidSelectCount = 0; }, RAPID_WINDOW_MS);
+
+                if (rapidSelectCount >= RAPID_SELECT_LIMIT) triggerRedirect();
+                else raiseSuspicion('selection-on-mouseup');
+            }
+            isDragging = false;
+        });
+
+        document.addEventListener('selectionchange', function () {
+            const selected = window.getSelection()?.toString().trim();
+            if (selected && selected.length >= 5) raiseSuspicion('selectionchange');
+        });
+
+        document.addEventListener('dragstart', function (e) {
+            e.preventDefault();
+            triggerRedirect();
+        });
+
+        document.addEventListener('mouseleave', function () {
+            suspicionScore = Math.max(0, suspicionScore - 1);
+        });
     })();
 </script>
 </body>
