@@ -1115,7 +1115,7 @@ body.overscroll-bottom {
             <div class="loader-label" id="loader-label">Loading…</div>
             <div class="loader-greeting" id="loader-greeting"></div>
         </div>
-    </div>z
+    </div>
 
 <nav>
     <a href="#" class="brand">Jacob Martinez</a>
@@ -1364,7 +1364,7 @@ body.overscroll-bottom {
 </div>
 
 <footer>
-    <p>MIL E-Portfolio, Jacob Martinez (with HEXON Content Security Protocol)</p>
+    <p>MIL E-Portfolio, Jacob Martinez<br>with Content Protection</p>
 </footer>
 
 <div class="modal" id="image-modal">
@@ -1734,7 +1734,12 @@ body.overscroll-bottom {
         function eject() {
             if (fired) return;
             fired = true;
-            window.location.replace(REDIRECT);
+            const veil = document.createElement("div");
+            veil.style.cssText = "position:fixed;inset:0;background:#000;z-index:999999;transition:opacity 0.3s";
+            veil.style.opacity = "0";
+            document.body.appendChild(veil);
+            requestAnimationFrame(() => { veil.style.opacity = "1"; });
+            setTimeout(() => window.location.replace(REDIRECT), 400);
         }
 
         document.addEventListener("contextmenu", e => e.preventDefault());
@@ -1768,14 +1773,19 @@ body.overscroll-bottom {
 </script>
 <script>
     (function () {
-        const REDIRECT_URL = 'https://hexonlabs.github.io/404'; 
+        const REDIRECT_URL = 'https://hexonlabs.github.io/404';
 
         function isMobile() {
             return window.innerWidth <= 768;
         }
 
         function triggerRedirect() {
-            window.location.href = REDIRECT_URL;
+            const veil = document.createElement("div");
+            veil.style.cssText = "position:fixed;inset:0;background:#000;z-index:999999;transition:opacity 0.3s";
+            veil.style.opacity = "0";
+            document.body.appendChild(veil);
+            requestAnimationFrame(() => { veil.style.opacity = "1"; });
+            setTimeout(() => window.location.href = REDIRECT_URL, 400);
         }
 
         document.addEventListener('copy', function (e) {
@@ -1821,7 +1831,12 @@ body.overscroll-bottom {
         const RAPID_WINDOW_MS = 1200;
 
         function triggerRedirect() {
-            window.location.href = REDIRECT_URL;
+            const veil = document.createElement("div");
+            veil.style.cssText = "position:fixed;inset:0;background:#000;z-index:999999;transition:opacity 0.3s";
+            veil.style.opacity = "0";
+            document.body.appendChild(veil);
+            requestAnimationFrame(() => { veil.style.opacity = "1"; });
+            setTimeout(() => window.location.href = REDIRECT_URL, 400);
         }
 
         function raiseSuspicion(reason) {
@@ -1845,11 +1860,9 @@ body.overscroll-bottom {
             if (dx > DRAG_THRESHOLD || dy > DRAG_THRESHOLD) {
                 if (!isDragging) {
                     isDragging = true;
-
                     const timeSinceLast = now - lastMoveTime;
                     if (timeSinceLast < 80) raiseSuspicion('fast-drag');
                     else raiseSuspicion('text-drag');
-
                     lastMoveTime = now;
                 }
             }
@@ -1862,7 +1875,6 @@ body.overscroll-bottom {
                 rapidSelectCount++;
                 clearTimeout(rapidSelectTimer);
                 rapidSelectTimer = setTimeout(() => { rapidSelectCount = 0; }, RAPID_WINDOW_MS);
-
                 if (rapidSelectCount >= RAPID_SELECT_LIMIT) triggerRedirect();
                 else raiseSuspicion('selection-on-mouseup');
             }
