@@ -47,6 +47,16 @@ body.dark-theme {
     body {display: none !important;}
 }
 
+::selection {
+    background: transparent !important;
+    color: inherit !important;
+}
+
+::-webkit-selection {
+    background: transparent !important;
+    color: inherit !important;
+}
+
 .protected-text::before {
     content: "The actual content of my reflection goes here...";
 }
