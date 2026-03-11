@@ -43,6 +43,14 @@ body.dark-theme {
     --md-glass-bg: rgba(20, 18, 24, 0.85);
 }
 
+@media print {
+    body {display: none !important;}
+}
+
+.protected-text::before {
+    content: "The actual content of my reflection goes here...";
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -1084,6 +1092,9 @@ body.overscroll-bottom {
 </head>
 <body>
 
+    <div id="not-an-article">
+    </div>
+
     <div id="loader">
         <div class="loader-inner">
             <div class="loader-name">MIL E-Portfolio</div>
@@ -1341,7 +1352,7 @@ body.overscroll-bottom {
 </div>
 
 <footer>
-    <p>MIL E-Portfolio, Jacob Martinez (with HEXON Security Protocols)</p>
+    <p>MIL E-Portfolio, Jacob Martinez (with HEXON Content Security Protocol)</p>
 </footer>
 
 <div class="modal" id="image-modal">
@@ -1562,6 +1573,18 @@ body.overscroll-bottom {
             if (/Linux/i.test(ua)) return { label: "Linux User", icon: "" };
             if (/CrOS/i.test(ua)) return { label: "ChromeOS User", icon: "" };
             return { label: "Visitor", icon: "👋" };
+        }
+
+        function hardenSecurity() {
+            const sensitive = document.querySelectorAll('.reflection-card');
+            sensitive.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    if (suspicionScore > 2) {
+                        el.style.userSelect = 'none';
+                        el.style.webkitUserSelect = 'none'; /* Essential for MacBook/Safari */
+                    }
+                });
+            });
         }
 
         const loader = document.getElementById("loader");
